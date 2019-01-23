@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0004C721F2421A00F6FD5F /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0004C621F2421A00F6FD5F /* Deck.swift */; };
 		9A06780521F0D6BD00ABD96C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06780421F0D6BD00ABD96C /* AppDelegate.swift */; };
 		9A06780721F0D6BD00ABD96C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06780621F0D6BD00ABD96C /* ViewController.swift */; };
 		9A06780A21F0D6BD00ABD96C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A06780821F0D6BD00ABD96C /* Main.storyboard */; };
-		9A06780D21F0D6BD00ABD96C /* SlapJack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A06780B21F0D6BD00ABD96C /* SlapJack.xcdatamodeld */; };
+		9A06780D21F0D6BD00ABD96C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A06780B21F0D6BD00ABD96C /* Model.xcdatamodeld */; };
 		9A06780F21F0D6BF00ABD96C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A06780E21F0D6BF00ABD96C /* Assets.xcassets */; };
 		9A06781221F0D6BF00ABD96C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A06781021F0D6BF00ABD96C /* LaunchScreen.storyboard */; };
 		9A06781D21F0D6C000ABD96C /* SlapJackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06781C21F0D6C000ABD96C /* SlapJackTests.swift */; };
 		9A06782821F0D6C000ABD96C /* SlapJackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06782721F0D6C000ABD96C /* SlapJackUITests.swift */; };
+		9A06783921F0F01800ABD96C /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06783821F0F01800ABD96C /* NetworkController.swift */; };
+		9A06783B21F0F0C100ABD96C /* DeckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06783A21F0F0C100ABD96C /* DeckController.swift */; };
+		9A06783D21F0F9AC00ABD96C /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06783C21F0F9AC00ABD96C /* Stack.swift */; };
+		9A06784221F0FAD700ABD96C /* DeckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06784121F0FAD700ABD96C /* DeckManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A0004C621F2421A00F6FD5F /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		9A06780121F0D6BD00ABD96C /* SlapJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlapJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A06780421F0D6BD00ABD96C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A06780621F0D6BD00ABD96C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +55,10 @@
 		9A06782321F0D6C000ABD96C /* SlapJackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlapJackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A06782721F0D6C000ABD96C /* SlapJackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlapJackUITests.swift; sourceTree = "<group>"; };
 		9A06782921F0D6C000ABD96C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A06783821F0F01800ABD96C /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		9A06783A21F0F0C100ABD96C /* DeckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckController.swift; sourceTree = "<group>"; };
+		9A06783C21F0F9AC00ABD96C /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		9A06784121F0FAD700ABD96C /* DeckManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +110,13 @@
 			isa = PBXGroup;
 			children = (
 				9A06780421F0D6BD00ABD96C /* AppDelegate.swift */,
-				9A06780621F0D6BD00ABD96C /* ViewController.swift */,
-				9A06780821F0D6BD00ABD96C /* Main.storyboard */,
+				9A06783521F0E32D00ABD96C /* Model */,
+				9A06783621F0E33B00ABD96C /* View */,
+				9A06783721F0E34B00ABD96C /* Cotrollers */,
+				9A06783821F0F01800ABD96C /* NetworkController.swift */,
 				9A06780E21F0D6BF00ABD96C /* Assets.xcassets */,
 				9A06781021F0D6BF00ABD96C /* LaunchScreen.storyboard */,
 				9A06781321F0D6BF00ABD96C /* Info.plist */,
-				9A06780B21F0D6BD00ABD96C /* SlapJack.xcdatamodeld */,
 			);
 			path = SlapJack;
 			sourceTree = "<group>";
@@ -126,6 +137,34 @@
 				9A06782921F0D6C000ABD96C /* Info.plist */,
 			);
 			path = SlapJackUITests;
+			sourceTree = "<group>";
+		};
+		9A06783521F0E32D00ABD96C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A06780B21F0D6BD00ABD96C /* Model.xcdatamodeld */,
+				9A06783C21F0F9AC00ABD96C /* Stack.swift */,
+				9A0004C621F2421A00F6FD5F /* Deck.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9A06783621F0E33B00ABD96C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A06780621F0D6BD00ABD96C /* ViewController.swift */,
+				9A06780821F0D6BD00ABD96C /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9A06783721F0E34B00ABD96C /* Cotrollers */ = {
+			isa = PBXGroup;
+			children = (
+				9A06784121F0FAD700ABD96C /* DeckManager.swift */,
+				9A06783A21F0F0C100ABD96C /* DeckController.swift */,
+			);
+			path = Cotrollers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +298,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A06784221F0FAD700ABD96C /* DeckManager.swift in Sources */,
+				9A06783921F0F01800ABD96C /* NetworkController.swift in Sources */,
 				9A06780721F0D6BD00ABD96C /* ViewController.swift in Sources */,
 				9A06780521F0D6BD00ABD96C /* AppDelegate.swift in Sources */,
-				9A06780D21F0D6BD00ABD96C /* SlapJack.xcdatamodeld in Sources */,
+				9A0004C721F2421A00F6FD5F /* Deck.swift in Sources */,
+				9A06780D21F0D6BD00ABD96C /* Model.xcdatamodeld in Sources */,
+				9A06783D21F0F9AC00ABD96C /* Stack.swift in Sources */,
+				9A06783B21F0F0C100ABD96C /* DeckController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,12 +630,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9A06780B21F0D6BD00ABD96C /* SlapJack.xcdatamodeld */ = {
+		9A06780B21F0D6BD00ABD96C /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				9A06780C21F0D6BD00ABD96C /* SlapJack.xcdatamodel */,
 			);
 			currentVersion = 9A06780C21F0D6BD00ABD96C /* SlapJack.xcdatamodel */;
+			name = Model.xcdatamodeld;
 			path = SlapJack.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
