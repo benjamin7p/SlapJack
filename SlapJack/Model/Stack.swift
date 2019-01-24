@@ -12,7 +12,7 @@ import CoreData
 enum Stack {
     
     static let container: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Model")
+        let container = NSPersistentContainer(name: "SlapJack")
         container.loadPersistentStores() { (storeDescription, error) in
             if let error = error {
                 fatalError("Unresolved error \(error)")

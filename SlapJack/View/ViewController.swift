@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var deck: [Deck] = []
+    var deck: Deck = Deck()
 
     @IBOutlet weak var cardsGoneThroughLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -18,12 +18,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var cardImageView: UIImageView!
     
     @IBAction func pauseButtonTapped(_ sender: Any) {
-        DeckController.sharedController.GetNewDeck() { (idDeck) in
-            if let idDeck = idDeck {
-                self.deck = idDeck
+        DeckController.sharedController.GetNewDeck() { deck in
+            if let deck = deck {
+                self.deck = deck
             }
         }
-        print()
+        
     }
     
     

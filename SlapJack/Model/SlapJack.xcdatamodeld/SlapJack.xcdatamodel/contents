@@ -2,12 +2,12 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Card" representedClassName="Card" syncable="YES" codeGenerationType="class">
         <attribute name="cardImage" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="cardSuite" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cardSuit" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cardValue" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cardWasSlapped" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="Deck" representedClassName="Deck" syncable="YES" codeGenerationType="class">
-        <attribute name="cardsremaining" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    <entity name="Deck" representedClassName=".Deck" syncable="YES" codeGenerationType="class">
+        <attribute name="cardsRemaining" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="deckId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="card" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Card" syncable="YES"/>
     </entity>

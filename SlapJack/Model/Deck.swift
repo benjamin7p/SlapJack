@@ -12,10 +12,33 @@ import CoreData
 extension Deck {
     convenience init?(dictionary: Dictionary<String, Any>, context: NSManagedObjectContext = Stack.context) {
         guard let deckId = dictionary["deck_id"] as? String else {return nil}
+        guard let remaining = dictionary["remaining"] as? Int64 else {return nil}
         
         self.init(context: context)
         
-            self.deckId = deckId
+        self.deckId = deckId
+        self.cardsRemaining = remaining
+
+//        var cardValue = [Card]
+//        for cardValue in Card {
+//            let newCard = Card(dictionary: cardValue, context: context)
+//        }
+//        //var array of card objects  [Card]
+//       if let cards = dictionary["cards"] as? [[String: Any]] {
+//            //do something
+//        }
+//        for card in cards {
+//            let newCard = Card(dictionary: cards, context: context)
+//        }
+//        let setOfCards: [card]
         
+        //for card in cards
+        //let newCard = Card(dictionary: theBlobOfData, context: context)
+        
+        //create a set
+        //add all the cards to the set
+        
+        //save the set to
+//        self.card = TheSetOfCardsYouJustCreated
     }
 }
