@@ -16,6 +16,7 @@ class DeckController {
     let newDeckURL = "https://deckofcardsapi.com/api/deck/new/draw/?count=52"
 
     static let sharedController = DeckController()
+    
 
     var searchNewDeck: [Deck] {
         let request: NSFetchRequest<Deck> = Deck.fetchRequest()
@@ -42,7 +43,8 @@ class DeckController {
                 if let cards = response["cards"] as? [[String: Any]] {
                     for cardValue in cards {
                         let newCard = Card(dictionary: cardValue)
-                        print(newCard)
+                         newCard!.deck = newDeck
+                        print(newCard?.deck)
                     }
                 }
                 
@@ -56,6 +58,34 @@ class DeckController {
             }
         }
         
+    }
+    
+    func deleteDeck(deck: Deck) {
+        Stack.context.delete(deck)
+        saveToPersistentStorage()
+    }
+    
+//    func saveDeck(deck: Deck) {
+//        guard let deckId = deck.deckId else { return }
+//          let cardsRemaining = deck.cardsRemaining
+//        
+//        for deck in searchNewDeck {
+//            deleteDeck(deck: deck)
+//        }
+//        
+//        let deckToSave = Deck(context: Stack.context)
+//        deckToSave.deckId = deckId
+//        deckToSave.cardsRemaining = cardsRemaining
+//        saveToPersistentStorage()
+//    }
+    
+   func saveToPersistentStorage() {
+        
+        do {
+            try Stack.context.save()
+        } catch {
+            print("deck not saved to persistent storage")
+        }
     }
     
 //    func getNewDeck(deck_id: String, completion: (([Deck]?) -> Void)? = nil) {
@@ -89,7 +119,6 @@ class DeckController {
 
     
     
-        //since deck_id has an underscore does it need to have a sttrct to decode from json like in resturant?
     
 }
 
