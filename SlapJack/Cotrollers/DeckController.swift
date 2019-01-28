@@ -17,7 +17,8 @@ class DeckController {
 
     static let sharedController = DeckController()
     
-
+    // need to get newCardValue to pass
+    
     var searchNewDeck: [Deck] {
         let request: NSFetchRequest<Deck> = Deck.fetchRequest()
         
@@ -40,11 +41,17 @@ class DeckController {
                 
             
                 let newDeck = Deck(dictionary: response, context: Stack.context)
+                
                 if let cards = response["cards"] as? [[String: Any]] {
-                    for cardValue in cards {
-                        let newCard = Card(dictionary: cardValue)
+                    for cardInfo in cards {
+                        let newCard = Card(dictionary: cardInfo)
                          newCard!.deck = newDeck
-                        print(newCard?.deck)
+                        //print(cardInfo)
+                        print(newDeck?.card?.count)
+                        
+                        
+                        //let newCardValue = [cardValue]
+                        //let thisCard = Card
                     }
                 }
                 

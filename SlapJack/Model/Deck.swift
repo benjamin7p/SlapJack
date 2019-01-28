@@ -12,13 +12,12 @@ import CoreData
 extension Deck {
     convenience init?(dictionary: Dictionary<String, Any>, context: NSManagedObjectContext = Stack.context) {
         guard let deckId = dictionary["deck_id"] as? String else {return nil}
-        guard let remaining = dictionary["remaining"] as? Int64 else {return nil}
+        
         
         self.init(context: context)
         
         self.deckId = deckId
-        self.cardsRemaining = remaining
-
+        
 //        var cardValue = [Card]
 //        for cardValue in Card {
 //            let newCard = Card(dictionary: cardValue, context: context)

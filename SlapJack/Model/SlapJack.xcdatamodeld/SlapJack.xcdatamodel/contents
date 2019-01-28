@@ -8,12 +8,11 @@
         <relationship name="deck" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Deck" inverseName="card" inverseEntity="Deck" syncable="YES"/>
     </entity>
     <entity name="Deck" representedClassName=".Deck" syncable="YES" codeGenerationType="class">
-        <attribute name="cardsRemaining" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="deckId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="card" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Card" inverseName="deck" inverseEntity="Card" syncable="YES"/>
     </entity>
     <elements>
         <element name="Card" positionX="168.1171875" positionY="-74.84765625" width="128" height="120"/>
-        <element name="Deck" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Deck" positionX="-63" positionY="-18" width="128" height="75"/>
     </elements>
 </model>

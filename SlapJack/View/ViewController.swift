@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var deck: Deck = Deck()
+    var deck: Deck?
+    
 
     @IBOutlet weak var cardsGoneThroughLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -21,6 +22,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        deck = DeckController.sharedController.searchNewDeck.first
+        guard let deck = deck,
+            let card = deck.card else {return}
+        cardsGoneThroughLabel.text = "Card# \(card.count)"
+        //cardImageView.image = "card url \(card.)"
         
     }
     
