@@ -13,13 +13,18 @@ class IntroViewController: UIViewController {
     
     var deck: Deck = Deck()
     
+    static let sharedController = IntroViewController()
     
     @IBAction func slapJackButtonTapped(_ sender: Any) {
-        DeckController.sharedController.searchNewDeck
+        DeckController.sharedController.performNewDeckFetchRequest
     }
     
     override func viewDidLoad() {
+        slapJackButton.layer.cornerRadius = 5.0
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "aceOfDiamondsImage")!)
+
         DeckController.sharedController.GetNewDeck() { deck in
             DispatchQueue.main.async {
                 if let deck = deck {

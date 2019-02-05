@@ -19,7 +19,7 @@ class DeckController {
     
     // need to get newCardValue to pass
     
-    var searchNewDeck: [Deck] {
+    var performNewDeckFetchRequest: [Deck] {
         let request: NSFetchRequest<Deck> = Deck.fetchRequest()
         
         do {
@@ -39,21 +39,22 @@ class DeckController {
             do {
                 let response = try JSONSerialization.jsonObject(with: data, options: []) as! [String: AnyObject]
                 
-            
+                
                 let newDeck = Deck(dictionary: response, context: Stack.context)
                 
-                if let cards = response["cards"] as? [[String: Any]] {
-                    for cardInfo in cards {
-                        let newCard = Card(dictionary: cardInfo)
-                         newCard!.deck = newDeck
+                if let cardsInDeck = response["cards"] as? [[String: Any]] {
+                    for cardInfo in cardsInDeck {
+                        let newCardInDeck = Card(dictionary: cardInfo)
+                         newCardInDeck!.deck = newDeck
                         //print(cardInfo)
-                        print(newDeck?.card?.count)
-                        
+                        //print(newDeck?.card?.count)
+                        //print(newDeck)
                         
                         //let newCardValue = [cardValue]
                         //let thisCard = Card
                     }
                 }
+            
                 
 
                 if let completion = completion {
@@ -67,11 +68,18 @@ class DeckController {
         
     }
     
-    func deleteDeck(deck: Deck) {
-        Stack.context.delete(deck)
+    
+    
+    func deleteDeck(deckToDelete: Deck) {
+        Stack.context.delete(deckToDelete)
         saveToPersistentStorage()
     }
     
+    
+    // func delete(deckToDelete: Deck) {
+    //        appDelegate.persistentContainer.viewContext.delete(deckToDelete)
+    //
+    //    }
 //    func saveDeck(deck: Deck) {
 //        guard let deckId = deck.deckId else { return }
 //          let cardsRemaining = deck.cardsRemaining

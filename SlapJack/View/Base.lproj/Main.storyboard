@@ -61,6 +61,7 @@
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pmc-XX-Qod">
                                 <rect key="frame" x="16" y="246" width="343" height="381"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYh-4A-zBD">
                                 <rect key="frame" x="16" y="318.5" width="343" height="30"/>
@@ -68,6 +69,9 @@
                                     <constraint firstAttribute="height" constant="30" id="tt0-1j-GAI"/>
                                 </constraints>
                                 <state key="normal" title="New Game"/>
+                                <connections>
+                                    <action selector="newGameButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zNX-Qt-1pw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -92,12 +96,19 @@
                     <connections>
                         <outlet property="cardImageView" destination="pmc-XX-Qod" id="kXr-OX-gor"/>
                         <outlet property="cardsGoneThroughLabel" destination="JEd-hw-fs1" id="6is-in-Pr5"/>
+                        <outlet property="gestureRecognizer" destination="yv0-Yl-4oF" id="KZl-pr-0MQ"/>
                         <outlet property="newGameButton" destination="PYh-4A-zBD" id="qIV-hq-S1y"/>
                         <outlet property="pauseButton" destination="OfW-VJ-HI5" id="1O3-jM-mbZ"/>
                         <outlet property="scoreLabel" destination="qc3-zS-6JG" id="QV3-iF-FXb"/>
+                        <outletCollection property="cardTapped" destination="yv0-Yl-4oF" collectionClass="NSMutableArray" id="qMw-Cp-NSc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yv0-Yl-4oF">
+                    <connections>
+                        <action selector="cardImageTapped:" destination="BYZ-38-t0r" id="LHw-y1-8aK"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1077.5999999999999" y="-564.46776611694156"/>
         </scene>
@@ -105,18 +116,21 @@
         <scene sceneID="JnV-XP-5a1">
             <objects>
                 <viewController title="IntroViewController" id="y3N-So-G6z" customClass="IntroViewController" customModule="SlapJack" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XMx-dw-PJk">
+                    <view key="view" clipsSubviews="YES" contentMode="center" id="XMx-dw-PJk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BV6-V3-yMv">
                                 <rect key="frame" x="16" y="318" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Slap Jack!">
-                                    <color key="titleColor" red="0.86467778500000003" green="0.046487561619999999" blue="0.082766858439999993" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="slapJackButtonTapped:" destination="y3N-So-G6z" eventType="touchUpInside" id="5op-fP-Em7"/>
+                                    <action selector="slapJackButtonTapped:" destination="DVO-jh-Ivy" eventType="touchUpInside" id="Jpe-6v-esO"/>
                                     <segue destination="Ola-N8-HiT" kind="presentation" id="yy9-6w-JLQ"/>
                                 </connections>
                             </button>
@@ -134,6 +148,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7I-d0-wAF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DVO-jh-Ivy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-671.20000000000005" y="-564.46776611694156"/>
         </scene>

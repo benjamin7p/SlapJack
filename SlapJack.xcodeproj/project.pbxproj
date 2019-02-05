@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9A0004C721F2421A00F6FD5F /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0004C621F2421A00F6FD5F /* Deck.swift */; };
 		9A025B2821FA1E5A0034C144 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A025B2721FA1E5A0034C144 /* Card.swift */; };
+		9A03B4CE2200C8DC00B45DB0 /* CardControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A03B4CD2200C8DC00B45DB0 /* CardControllerViewController.swift */; };
 		9A06780521F0D6BD00ABD96C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06780421F0D6BD00ABD96C /* AppDelegate.swift */; };
 		9A06780721F0D6BD00ABD96C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06780621F0D6BD00ABD96C /* ViewController.swift */; };
 		9A06780A21F0D6BD00ABD96C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A06780821F0D6BD00ABD96C /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		9A0004C621F2421A00F6FD5F /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		9A025B2721FA1E5A0034C144 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		9A03B4CD2200C8DC00B45DB0 /* CardControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardControllerViewController.swift; sourceTree = "<group>"; };
 		9A06780121F0D6BD00ABD96C /* SlapJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlapJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A06780421F0D6BD00ABD96C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A06780621F0D6BD00ABD96C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				9A06784121F0FAD700ABD96C /* DeckManager.swift */,
 				9A06783A21F0F0C100ABD96C /* DeckController.swift */,
+				9A03B4CD2200C8DC00B45DB0 /* CardControllerViewController.swift */,
 			);
 			path = Cotrollers;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				9ABCBD8B21FB8CAB00EADEB3 /* IntroViewController.swift in Sources */,
 				9A0004C721F2421A00F6FD5F /* Deck.swift in Sources */,
 				9A06780D21F0D6BD00ABD96C /* SlapJack.xcdatamodeld in Sources */,
+				9A03B4CE2200C8DC00B45DB0 /* CardControllerViewController.swift in Sources */,
 				9A06783D21F0F9AC00ABD96C /* Stack.swift in Sources */,
 				9A06783B21F0F0C100ABD96C /* DeckController.swift in Sources */,
 			);
