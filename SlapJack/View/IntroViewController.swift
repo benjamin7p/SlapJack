@@ -16,23 +16,38 @@ class IntroViewController: UIViewController {
     static let sharedController = IntroViewController()
     
     @IBAction func slapJackButtonTapped(_ sender: Any) {
-        DeckController.sharedController.performNewDeckFetchRequest
+        
     }
     
-    override func viewDidLoad() {
-        slapJackButton.layer.cornerRadius = 5.0
-        super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "aceOfDiamondsImage")!)
-
-        DeckController.sharedController.GetNewDeck() { deck in
-            DispatchQueue.main.async {
-                if let deck = deck {
-                    self.deck = deck
-                    DeckController.sharedController.saveToPersistentStorage()
+    override func viewWillAppear(_ animated: Bool) {
+        if DeckController.sharedController.performNewDeckFetchRequest.count == 0 {
+            
+            DeckController.sharedController.GetNewDeck() { deck in
+                DispatchQueue.main.async {
+                    if let deck = deck {
+                        self.deck = deck
+                        DeckController.sharedController.saveToPersistentStorage()
+                    }
                 }
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationController?.navigationBar.isHidden = true
+        
+        slapJackButton.layer.cornerRadius = 5.0
+        
+        //        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "aceOfDiamondsImage")!)
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "aceOfDiamondsImage")
+        backgroundImage.contentMode = UIView.ContentMode.scaleToFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
         
     }
 }
+
+

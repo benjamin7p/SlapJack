@@ -102,35 +102,6 @@ class DeckController {
             print("deck not saved to persistent storage")
         }
     }
-    
-//    func getNewDeck(deck_id: String, completion: (([Deck]?) -> Void)? = nil) {
-//        guard let url = URL(string: baseURL + deck_id) else {
-//            print("could not get deck")
-//            return
-//        }
-//        NetworkController.performNetworkRequest(for: url) { (data, error) in
-//            guard let data = data else {return}
-//
-//            do {
-//                let jsonObjects = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-//                if let dictionary = jsonObjects as? Dictionary<String, [Dictionary<String, Any>]>,
-//                    let results = dictionary["results"] {
-//                    var newDeck: [Deck] = []
-//                    for deck1 in results {
-//                        if let newDeckId = Deck(dictionary: deck1) {
-//                            newDeck.append(newDeckId)
-//                        }
-//                    }
-//                    if let completion = completion {
-//                        completion(newDeck)
-//                    }
-//                }
-//            } catch {
-//                print(error)
-//            }
-//        }
-//    }
-//
 
     
     

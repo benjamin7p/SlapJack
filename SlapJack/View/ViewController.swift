@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     var deck: Deck?
     
     var currentCard: Card?
-    var scoreCount = 0
     
 
     @IBOutlet weak var cardsGoneThroughLabel: UILabel!
@@ -26,29 +25,13 @@ class ViewController: UIViewController {
     //    @IBAction func newGameButtonState() {
     //        newGameButton.setTitle(for: _)
     //    }
-    @IBAction func newGameButtonTapped(_ sender: Any) {
-        
-        DeckController.sharedController.performNewDeckFetchRequest
-        guard let deck = deck else {return}
-        DeckController.sharedController.deleteDeck(deckToDelete: deck)
-        
+    
+    
+    @IBAction func newGameButtonTapped(_ sender: UIButton) {
+    
+        self.navigationController?.popViewController(animated: true)
     }
     
-    @IBOutlet var cardTapped: [UITapGestureRecognizer]!
-    @IBOutlet var gestureRecognizer: UITapGestureRecognizer!
-    
-    @IBAction func cardImageTapped(_ sender: UITapGestureRecognizer) {
-        guard gestureRecognizer.view != nil else {return}
-        if gestureRecognizer.state == .ended {
-            if currentCard?.cardValue == "JACK" {
-                print("you hit the jack")
-                scoreCount += 1
-                scoreLabel.text = "Score \(scoreCount)"
-                
-            }
-        }
-        
-    }
     // Build Timer
     
     // Once you have a timer. Display a different card every second
@@ -57,11 +40,11 @@ class ViewController: UIViewController {
     
     var seconds = 52
     var timer = Timer()
-    var isTimerRunning = false
-//    var cardsIntoSeconds = [seconds]
+    
+    var scoreCount = 0
     
     func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fire(timer:)), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fire(timer:)), userInfo: nil, repeats: true)
     }
     
 //    func updateTimer() {
@@ -71,7 +54,7 @@ class ViewController: UIViewController {
 
     @objc func fire(timer: Timer) {
         
-        deck = DeckController.sharedController.performNewDeckFetchRequest.first
+        //deck = DeckController.sharedController.performNewDeckFetchRequest.first
         guard let deck = deck,
             // all the cards in the deck
             let cards = deck.card,
@@ -84,135 +67,71 @@ class ViewController: UIViewController {
             let cardURL = URL(string: imageURLString) else {return}
         // passing my url string into type URL string
         
-        if singleCard.cardValue == "JACK" {
-            
-        }
-        currentCard = singleCard
+//        if singleCard.cardValue == "JACK" {
+//
+//        }
+//        currentCard = singleCard
         
-        // for card in cards { [string: any]
-        // let value = card["value"]
-        //Card(value, _) }
-        // dict["cards"] as [[string: any]].compactMap { Card(dictionary: $0) }
         
         CardInfoController.sharedController.searchCardImage(imageURL: cardURL) { (image) in
-            // calling my searchCardImage func on my chosen cards url string that is now a URL and doing a completion on image wich i have turned into a  uiImage from network
             DispatchQueue.main.async {
                 self.cardImageView.image = image
-                // passing my now decoded image (which is now an image no longer a url string) into the cardImageView outlet
             }
         }
-        
-        
-        
+        seconds -= 1
+
         cardsGoneThroughLabel.text = "Card \(seconds)"
         
-        //cardImageView.image = "card url \(card.)"
-        //print(card)
         
+        if seconds == 0 {
+            newGameButton.isHidden = false
+            cardPic()
+            
         
-        // need to write then call function to cycle through cards here. for singleCard in cards.allObjects
-        //        cycleThroughCards()
-        //        cycleThroughCards()
-        //giveMeCardValue()
-        //runTimer()
-        if seconds == 1 {
+            
+            DeckController.sharedController.deleteDeck(deckToDelete: deck)
+            
             timer.invalidate()
-            isTimerRunning = false
         }
-        seconds -= 1
+        
+       
     }
-       //cardImageView.image = current cards image
-        // cardsLeftlabel = card number of 52
     
-    // commented out the above code sunay
-    
-//    func loopCardsWithSeconds(completion: ([Card]?) -> Void)? = nil {
-//        deck = DeckController.sharedController.searchNewDeck.first
-//        guard let deck = deck,
-//            // all the cards in the deck
-//            let cards = deck.card,
-//            
-//            let singleCard = cards.allObjects[0] as? Card,
-//            // takes all cards and selects the first card (second would be [1] etc) and casts as my version of card
-//            let singleCardValue = singleCard.cardValue else {return}
-//        return [singleCardValue]
-//    }
-    
-    
-    
-    
-    // let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
-    //    timer.tolerance = 0.2
-    //    RunLoop.current.add(timer, forMode: .commonModes)
-    
-    //    @objc func runTimer() {
-    //        deck = DeckController.sharedController.searchNewDeck.first
-    //        guard let deck = deck,
-    //            // all the cards in the deck
-    //            let cards = deck.card else {return}
-    //            let cardStack = [cards]
-    //        for cardValue in cardStack {
-    //
-    //        }
-    //
-    //            let singleCard = cards.allObjects[0] as? Card,
-    //
-    //            // takes all cards and selects the first card (second would be [1] etc) and casts as my version of card
-    //           // let cardValue = singleCard.cardValue else {return}
-    //        //RunLoop.current.add(timer, forMode: .RunLoop.Mode.common)
-    //
-    //        for index in cardValue {
-    //            if cardValue == "JACk" {
-    //                print("slapJack")
-    //            }
-    //        }
-    //
-    //
-    //    }
-    ////
-    //    func cycleThroughCards() {
-    //        deck = DeckController.sharedController.searchNewDeck.first
-    //        guard let deck = deck,
-    //            // all the cards in the deck
-    //            let cards = deck.card,
-    //            let singleCard = cards.allObjects[0] as? Card,
-    //            // takes all cards and selects the first card (second would be [1] etc) and casts as my version of card
-    //            let cardValue = singleCard.cardValue else {return}
-    //
-    //        let cardStack = [cardValue]
-    //        for cardValue in cardStack {
-    //            print("cyle through cards \(cardValue)")
-    //
-    //
-    //
-    //        }
-    //    }
-        @IBAction func slapJackButtonTapped(_ sender: Any) {
-            //giveMeCardValue()
-           // runTimer()
-        }
-    
-    func requestCardsInDeck() {
-        deck = DeckController.sharedController.performNewDeckFetchRequest.first
-        guard let deck = deck,
-            // all the cards in the deck
-            let cards = deck.card,
-
-            let singleCard = cards.allObjects[0] as? Card,
-
-            // takes all cards and selects the first card (second would be [1] etc) and casts as my version of card
-            let cardValue = singleCard.cardValue else {return}
-        print(cardValue.count)
-        print(cardValue)
+    func cardPic() {
+        let backgroundImage = cardImageView
+        backgroundImage?.image = UIImage(named: "aceOfSpades")!
     }
 
-    
-    
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        guard sender.view != nil else {return}
+        if sender.state == .ended {
+            if currentCard?.cardValue == "JACK" {
+                scoreCount += 1
+                scoreLabel.text = "Score \(scoreCount)"
+                
+
+            } else {
+                scoreCount -= 1
+                scoreLabel.text = "\(scoreCount)"
+            }
+        }
+    }
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scoreLabel.text = "Score 0"
+        scoreLabel.text = "Score \(scoreCount)"
+        newGameButton.isHidden = true
+        newGameButton.layer.cornerRadius = 5.0
+        
+                let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender: )))
+                self.view.addGestureRecognizer(tap)
+
+        
+        
+        
+        
         deck = DeckController.sharedController.performNewDeckFetchRequest.first
         guard let deck = deck,
             // all the cards in the deck
@@ -230,10 +149,7 @@ class ViewController: UIViewController {
             
         }
         
-        // for card in cards { [string: any]
-        // let value = card["value"]
-        //Card(value, _) }
-        // dict["cards"] as [[string: any]].compactMap { Card(dictionary: $0) }
+        
         
         CardInfoController.sharedController.searchCardImage(imageURL: cardURL) { (image) in
             // calling my searchCardImage func on my chosen cards url string that is now a URL and doing a completion on image wich i have turned into a  uiImage from network
@@ -246,14 +162,7 @@ class ViewController: UIViewController {
         
         
         cardsGoneThroughLabel.text = "Card \(cards.count)"
-        //cardImageView.image = "card url \(card.)"
-        //print(card)
         
-        
-        // need to write then call function to cycle through cards here. for singleCard in cards.allObjects
-//        cycleThroughCards()
-//        cycleThroughCards()
-        //giveMeCardValue()
         runTimer()
     }
     
@@ -262,17 +171,20 @@ class ViewController: UIViewController {
     
     
     @IBAction func pauseButtonTapped(_ sender: Any) {
-        DeckController.sharedController.GetNewDeck() { deck in
-            DispatchQueue.main.async {
-                if let deck = deck {
-                    self.deck = deck
-                }
+        cardPic()
+        if pauseButton.titleLabel?.text == "Pause" {
+            timer.invalidate()
+            pauseButton.setTitle("Play", for: .normal)
+        } else {
+            
+            if pauseButton.titleLabel?.text == "Play" {
+                runTimer()
+                pauseButton.setTitle("Pause", for: .normal)
+                
+                
             }
             
         }
-        
     }
     
 }
-
-
