@@ -9,15 +9,17 @@
 import UIKit
 
 class IntroViewController: UIViewController {
-    @IBOutlet weak var slapJackButton: UIButton!
     
     var deck: Deck = Deck()
-    
     static let sharedController = IntroViewController()
     
+    
+    @IBOutlet weak var slapJackButton: UIButton!
+    
+    
     @IBAction func slapJackButtonTapped(_ sender: Any) {
-        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         if DeckController.sharedController.performNewDeckFetchRequest.count == 0 {
@@ -33,20 +35,16 @@ class IntroViewController: UIViewController {
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = true
-        
         slapJackButton.layer.cornerRadius = 5.0
-        
-        //        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "aceOfDiamondsImage")!)
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "aceOfDiamondsImage")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.view.insertSubview(backgroundImage, at: 0)
-        
-        
     }
 }
 

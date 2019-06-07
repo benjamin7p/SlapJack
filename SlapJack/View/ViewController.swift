@@ -11,10 +11,12 @@ import UIKit
 class ViewController: UIViewController {
     
     var deck: Deck?
-    
     var currentCard: Card?
+    var seconds = 52
+    var timer = Timer()
+    var scoreCount = 0
     
-
+    
     @IBOutlet weak var cardsGoneThroughLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var pauseButton: UIButton!
@@ -22,93 +24,63 @@ class ViewController: UIViewController {
     @IBOutlet weak var newGameButton: UIButton!
     
     
-    
     @IBAction func newGameButtonTapped(_ sender: UIButton) {
-    
+        
         self.navigationController?.popViewController(animated: true)
     }
     
-    
-    
-    var seconds = 52
-    var timer = Timer()
-    
-    var scoreCount = 0
     
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fire(timer:)), userInfo: nil, repeats: true)
     }
     
-
-
+    
     @objc func fire(timer: Timer) {
         
-        //deck = DeckController.sharedController.performNewDeckFetchRequest.first
         guard let deck = deck,
-            // all the cards in the deck
             let cards = deck.card,
-            
             let singleCard = cards.allObjects[seconds - 1] as? Card,
-            // takes all cards and selects the first card (second would be [1] etc) and casts as my version of card
             let imageURLString = singleCard.cardImage,
-            // getting the cardImage which is just a url string still from the chosen card
             //https://deckofcardsapi.com/static/img/QS.png
             let cardURL = URL(string: imageURLString) else {return}
-        // passing my url string into type URL string
         
-//        if singleCard.cardValue == "JACK" {
-//
-//        }
-       currentCard = singleCard
-        
-        
+        currentCard = singleCard
         CardInfoController.sharedController.searchCardImage(imageURL: cardURL) { (image) in
             DispatchQueue.main.async {
                 self.cardImageView.image = image
             }
         }
+        
         seconds -= 1
-
         cardsGoneThroughLabel.text = "Card \(seconds)"
-        
-        
         if seconds == 0 {
             newGameButton.isHidden = false
             cardPic()
-            
-        
-            
             DeckController.sharedController.deleteDeck(deckToDelete: deck)
-            
             timer.invalidate()
         }
-        
-       
     }
+    
     
     func cardPic() {
         let backgroundImage = cardImageView
         backgroundImage?.image = UIImage(named: "aceOfSpades")!
     }
-
+    
+    
     @objc func handleTap(sender: UITapGestureRecognizer) {
         guard sender.view != nil else {return}
         if sender.state == .ended {
             if currentCard?.cardValue == "JACK" {
                 scoreCount += 1
                 scoreLabel.text = "Score \(scoreCount)"
-                
             } else {
-                
                 scoreCount -= 1
                 scoreLabel.text = "Score \(scoreCount)"
             }
-            
         }
     }
     
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,9 +88,9 @@ class ViewController: UIViewController {
         newGameButton.isHidden = true
         newGameButton.layer.cornerRadius = 5.0
         
-                let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender: )))
-                self.view.addGestureRecognizer(tap)
-
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender: )))
+        self.view.addGestureRecognizer(tap)
+        
         deck = DeckController.sharedController.performNewDeckFetchRequest.first
         guard let deck = deck,
             let cards = deck.card,
@@ -127,22 +99,14 @@ class ViewController: UIViewController {
             //https://deckofcardsapi.com/static/img/QS.png
             let cardURL = URL(string: imageURLString) else {return}
         
-        
         CardInfoController.sharedController.searchCardImage(imageURL: cardURL) { (image) in
             DispatchQueue.main.async {
                 self.cardImageView.image = image
             }
         }
-        
-        
-        
         cardsGoneThroughLabel.text = "Card \(cards.count)"
-        
         runTimer()
     }
-    
-    
-    
     
     
     @IBAction func pauseButtonTapped(_ sender: Any) {
@@ -151,15 +115,10 @@ class ViewController: UIViewController {
             timer.invalidate()
             pauseButton.setTitle("Play", for: .normal)
         } else {
-            
             if pauseButton.titleLabel?.text == "Play" {
                 runTimer()
                 pauseButton.setTitle("Pause", for: .normal)
-                
-                
             }
-            
         }
     }
-    
 }

@@ -11,21 +11,9 @@ import CoreData
 
 class CardInfoController: UIViewController {
     
-//    let baseURL = "https://deckofcardsapi.com/static/img/9C.png"
-//
     static let sharedController = CardInfoController()
-//
-//    var cardImage: [Card] {
-//        let request: NSFetchRequest<Card> = Card.fetchRequest()
-//
-//        do {
-//            return try Stack.context.fetch(request)
-//        } catch {
-//            return []
-//        }
-//    }
-// what i am getting returned = uiImage
-    // how do i index through cards
+    
+    
     func searchCardImage(imageURL: URL, completion: ((UIImage?) -> Void)? = nil) {
         NetworkController.performNetworkRequest(for: imageURL) { (data, error) in
             guard let data = data,
@@ -37,13 +25,7 @@ class CardInfoController: UIViewController {
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-    
-
-    
-
 }
