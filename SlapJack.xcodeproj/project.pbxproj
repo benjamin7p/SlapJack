@@ -21,7 +21,6 @@
 		9A06783921F0F01800ABD96C /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06783821F0F01800ABD96C /* NetworkController.swift */; };
 		9A06783B21F0F0C100ABD96C /* DeckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06783A21F0F0C100ABD96C /* DeckController.swift */; };
 		9A06783D21F0F9AC00ABD96C /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06783C21F0F9AC00ABD96C /* Stack.swift */; };
-		9A06784221F0FAD700ABD96C /* DeckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06784121F0FAD700ABD96C /* DeckManager.swift */; };
 		9ABCBD8B21FB8CAB00EADEB3 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCBD8A21FB8CAB00EADEB3 /* IntroViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +62,6 @@
 		9A06783821F0F01800ABD96C /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		9A06783A21F0F0C100ABD96C /* DeckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckController.swift; sourceTree = "<group>"; };
 		9A06783C21F0F9AC00ABD96C /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
-		9A06784121F0FAD700ABD96C /* DeckManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckManager.swift; sourceTree = "<group>"; };
 		9ABCBD8A21FB8CAB00EADEB3 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,7 +167,6 @@
 		9A06783721F0E34B00ABD96C /* Cotrollers */ = {
 			isa = PBXGroup;
 			children = (
-				9A06784121F0FAD700ABD96C /* DeckManager.swift */,
 				9A06783A21F0F0C100ABD96C /* DeckController.swift */,
 				9A03B4CD2200C8DC00B45DB0 /* CardControllerViewController.swift */,
 			);
@@ -307,7 +304,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A06784221F0FAD700ABD96C /* DeckManager.swift in Sources */,
 				9A025B2821FA1E5A0034C144 /* Card.swift in Sources */,
 				9A06783921F0F01800ABD96C /* NetworkController.swift in Sources */,
 				9A06780721F0D6BD00ABD96C /* ViewController.swift in Sources */,

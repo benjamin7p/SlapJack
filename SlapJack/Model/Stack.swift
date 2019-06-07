@@ -17,7 +17,6 @@ enum Stack {
             if let error = error {
                 fatalError("Unresolved error \(error)")
             }
-            
         }
         
         return container
