@@ -113,11 +113,9 @@
 		9A06780321F0D6BD00ABD96C /* SlapJack */ = {
 			isa = PBXGroup;
 			children = (
-				9A06780421F0D6BD00ABD96C /* AppDelegate.swift */,
 				9A06783521F0E32D00ABD96C /* Model */,
 				9A06783621F0E33B00ABD96C /* View */,
 				9A06783721F0E34B00ABD96C /* Cotrollers */,
-				9A06783821F0F01800ABD96C /* NetworkController.swift */,
 				9A06780E21F0D6BF00ABD96C /* Assets.xcassets */,
 				9A06781021F0D6BF00ABD96C /* LaunchScreen.storyboard */,
 				9A06781321F0D6BF00ABD96C /* Info.plist */,
@@ -157,6 +155,7 @@
 		9A06783621F0E33B00ABD96C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9A06780421F0D6BD00ABD96C /* AppDelegate.swift */,
 				9A06780621F0D6BD00ABD96C /* ViewController.swift */,
 				9ABCBD8A21FB8CAB00EADEB3 /* IntroViewController.swift */,
 				9A06780821F0D6BD00ABD96C /* Main.storyboard */,
@@ -169,6 +168,7 @@
 			children = (
 				9A06783A21F0F0C100ABD96C /* DeckController.swift */,
 				9A03B4CD2200C8DC00B45DB0 /* CardControllerViewController.swift */,
+				9A06783821F0F01800ABD96C /* NetworkController.swift */,
 			);
 			path = Cotrollers;
 			sourceTree = "<group>";
