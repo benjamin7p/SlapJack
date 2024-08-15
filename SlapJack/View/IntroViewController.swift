@@ -42,7 +42,7 @@ class IntroViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         slapJackButton.layer.cornerRadius = 5.0
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "aceOfDiamondsImage")
+        backgroundImage.image = UIImage(named: "JackOfHearts")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.view.insertSubview(backgroundImage, at: 0)
     }
