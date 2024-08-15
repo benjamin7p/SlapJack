@@ -11,7 +11,7 @@
 		9A025B2821FA1E5A0034C144 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A025B2721FA1E5A0034C144 /* Card.swift */; };
 		9A03B4CE2200C8DC00B45DB0 /* CardControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A03B4CD2200C8DC00B45DB0 /* CardControllerViewController.swift */; };
 		9A06780521F0D6BD00ABD96C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06780421F0D6BD00ABD96C /* AppDelegate.swift */; };
-		9A06780721F0D6BD00ABD96C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06780621F0D6BD00ABD96C /* ViewController.swift */; };
+		9A06780721F0D6BD00ABD96C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06780621F0D6BD00ABD96C /* MainViewController.swift */; };
 		9A06780A21F0D6BD00ABD96C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A06780821F0D6BD00ABD96C /* Main.storyboard */; };
 		9A06780D21F0D6BD00ABD96C /* SlapJack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A06780B21F0D6BD00ABD96C /* SlapJack.xcdatamodeld */; };
 		9A06780F21F0D6BF00ABD96C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A06780E21F0D6BF00ABD96C /* Assets.xcassets */; };
@@ -47,7 +47,7 @@
 		9A03B4CD2200C8DC00B45DB0 /* CardControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardControllerViewController.swift; sourceTree = "<group>"; };
 		9A06780121F0D6BD00ABD96C /* SlapJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlapJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A06780421F0D6BD00ABD96C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A06780621F0D6BD00ABD96C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9A06780621F0D6BD00ABD96C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9A06780921F0D6BD00ABD96C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A06780C21F0D6BD00ABD96C /* SlapJack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SlapJack.xcdatamodel; sourceTree = "<group>"; };
 		9A06780E21F0D6BF00ABD96C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +113,7 @@
 		9A06780321F0D6BD00ABD96C /* SlapJack */ = {
 			isa = PBXGroup;
 			children = (
+				9A06780421F0D6BD00ABD96C /* AppDelegate.swift */,
 				9A06783521F0E32D00ABD96C /* Model */,
 				9A06783621F0E33B00ABD96C /* View */,
 				9A06783721F0E34B00ABD96C /* Cotrollers */,
@@ -155,9 +156,8 @@
 		9A06783621F0E33B00ABD96C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9A06780421F0D6BD00ABD96C /* AppDelegate.swift */,
-				9A06780621F0D6BD00ABD96C /* ViewController.swift */,
 				9ABCBD8A21FB8CAB00EADEB3 /* IntroViewController.swift */,
+				9A06780621F0D6BD00ABD96C /* MainViewController.swift */,
 				9A06780821F0D6BD00ABD96C /* Main.storyboard */,
 			);
 			path = View;
@@ -241,13 +241,16 @@
 				TargetAttributes = {
 					9A06780021F0D6BD00ABD96C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = "";
 					};
 					9A06781721F0D6C000ABD96C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = "";
 						TestTargetID = 9A06780021F0D6BD00ABD96C;
 					};
 					9A06782221F0D6C000ABD96C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = "";
 						TestTargetID = 9A06780021F0D6BD00ABD96C;
 					};
 				};
@@ -306,7 +309,7 @@
 			files = (
 				9A025B2821FA1E5A0034C144 /* Card.swift in Sources */,
 				9A06783921F0F01800ABD96C /* NetworkController.swift in Sources */,
-				9A06780721F0D6BD00ABD96C /* ViewController.swift in Sources */,
+				9A06780721F0D6BD00ABD96C /* MainViewController.swift in Sources */,
 				9A06780521F0D6BD00ABD96C /* AppDelegate.swift in Sources */,
 				9ABCBD8B21FB8CAB00EADEB3 /* IntroViewController.swift in Sources */,
 				9A0004C721F2421A00F6FD5F /* Deck.swift in Sources */,
