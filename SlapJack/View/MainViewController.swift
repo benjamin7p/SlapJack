@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
             let cardURL = URL(string: imageURLString) else {return}
         
         currentCard = singleCard
-        CardInfoController.sharedController.searchCardImage(imageURL: cardURL) { (image) in
+        CardImageController.sharedController.searchCardImage(imageURL: cardURL) { (image) in
             DispatchQueue.main.async {
                 self.cardImageView.image = image
             }
@@ -99,7 +99,7 @@ class MainViewController: UIViewController {
             //https://deckofcardsapi.com/static/img/QS.png
             let cardURL = URL(string: imageURLString) else {return}
         
-        CardInfoController.sharedController.searchCardImage(imageURL: cardURL) { (image) in
+        CardImageController.sharedController.searchCardImage(imageURL: cardURL) { (image) in
             DispatchQueue.main.async {
                 self.cardImageView.image = image
             }
